@@ -1,0 +1,60 @@
+//find sum of prime numbers using a dynamic array
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *a, n, i, j, prime, sum = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if(n <= 0)
+    {
+        printf("Invalid size");
+        return 0;
+    }
+
+    a = malloc(n * sizeof(int));
+
+    if(a == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    printf("Enter elements:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        prime = 1;
+
+        if(a[i] < 2)
+            prime = 0;
+
+        for(j = 2; j < a[i]; j++)
+        {
+            if(a[i] % j == 0)
+            {
+                prime = 0;
+                break;
+            }
+        }
+
+        if(prime == 1)
+        {
+            sum = sum + a[i];
+        }
+    }
+
+    printf("Sum of prime numbers = %d", sum);
+
+    free(a);
+
+    return 0;
+}
