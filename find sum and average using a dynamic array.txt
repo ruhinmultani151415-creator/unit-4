@@ -1,0 +1,43 @@
+//find sum and average using a dynamic array
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *a, n, i, sum = 0;
+    float avg;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if(n <= 0)
+    {
+        printf("Invalid size");
+        return 0;
+    }
+
+    a = malloc(n * sizeof(int));
+
+    if(a == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    printf("Enter elements:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+        sum = sum + a[i];
+    }
+
+    avg = (float)sum / n;
+
+    printf("Sum = %d\n", sum);
+    printf("Average = %.2f", avg);
+
+    free(a);
+
+    return 0;
+}
