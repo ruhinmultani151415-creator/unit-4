@@ -1,0 +1,31 @@
+//find maximum and minimum using pointers and function
+#include <stdio.h>
+
+void find(int a, int b, int *max, int *min)
+{
+    if(a > b)
+    {
+        *max = a;
+        *min = b;
+    }
+    else
+    {
+        *max = b;
+        *min = a;
+    }
+}
+
+int main()
+{
+    int a, b, max, min;
+
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
+
+    find(a, b, &max, &min);
+
+    printf("Maximum = %d\n", max);
+    printf("Minimum = %d", min);
+
+    return 0;
+}
