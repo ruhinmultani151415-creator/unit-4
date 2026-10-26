@@ -1,0 +1,21 @@
+//find area of circle using pointer and function
+#include <stdio.h>
+
+void area(float *r, float *ans)
+{
+    *ans = 3.14 * (*r) * (*r);
+}
+
+int main()
+{
+    float r, ans;
+
+    printf("Enter radius: ");
+    scanf("%f", &r);
+
+    area(&r, &ans);
+
+    printf("Area of circle = %.2f", ans);
+
+    return 0;
+}
